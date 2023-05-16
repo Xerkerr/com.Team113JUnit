@@ -45,10 +45,16 @@ public class C03_RadioButton {
         //  c. Create an account buton’una basin
         driver.findElement(By.xpath("//*[@data-testid='open-registration-form-button']")).click();
         //  d. Radio button elementlerini locate edin ve size uygun olani secin
-        WebElement maleButtonElementi = driver.findElement(By.xpath(""));
-        WebElement fameleButtonElementi = driver.findElement(By.xpath(""));
-        WebElement customButtonElementi = driver.findElement(By.xpath(""));
+        WebElement maleButtonElementi= driver.findElement(By.xpath("(//input[@type='radio'])[2]"));
+        WebElement femaleButtonElementi= driver.findElement(By.xpath("(//input[@type='radio'])[1]"));
+        WebElement customButtonElementi= driver.findElement(By.xpath("(//input[@type='radio'])[3]"));
+
+        maleButtonElementi.click();
         //  e. Sectiginiz radio button’un seçili, ötekilerin seçili olmadigini test edin
+
+        Assert.assertTrue(maleButtonElementi.isSelected());
+        Assert.assertFalse(femaleButtonElementi.isSelected());
+        Assert.assertFalse(customButtonElementi.isSelected());
 
     }
 }
