@@ -22,11 +22,10 @@ public class C02_Assert {
 
          */
 
-                                                                                                                                    WebDriverManager.chromedriver().setup();
-                                                                                                                                WebDriver driver = new ChromeDriver();
-                                                                                                    driver.manage().window().maximize();
-                                                        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         driver.get("https://www.amazon.com");
 
@@ -44,4 +43,5 @@ public class C02_Assert {
 
         Assert.assertTrue(actualTitle.contains(expectedIcerik));
         driver.close();
-}}
+    }
+}

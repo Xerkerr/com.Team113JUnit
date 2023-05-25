@@ -19,64 +19,35 @@ public class C05_Assertions {
     //		○ FrancaisLinkTest => Fransizca Linkin görüntülendiğini test edin
     WebDriver driver;
 
-    public void mahserin4Atlisi() {
+    public void mahserin4Atlisi(){
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        driver= new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.get("https://www.bestbuy.com");
     }
 
     @Test
-    public void test1() {
-        //		○ Sayfa URL’inin https://www.bestbuy.com/ ‘a esit oldugunu test edin
+    public void test01(){
+        // ○ Sayfa URL’inin https://www.bestbuy.com/ ‘a esit oldugunu test edin
         mahserin4Atlisi();
-        String expectedurl = "https://www.bestbuy.com/";
-        String actualurl = driver.getCurrentUrl(); // https://www.bestbuy.com/
-        Assert.assertEquals(expectedurl, actualurl);
+        String expectedUrl="https://www.bestbuy.com/";
+        String actualUrl= driver.getCurrentUrl(); // https://www.bestbuy.com/
+
+        Assert.assertEquals(expectedUrl,actualUrl);
+        driver.close();
     }
 
-
     @Test
-    public void test2() {
-        //		○ titleTest => Sayfa başlığının “Rest” içermediğini(contains) test edin
+    public void test02(){
+        // ○ titleTest => Sayfa başlığının “Rest” içermediğini(contains) test edin
         mahserin4Atlisi();
         String unExpectedIcerik = "Rest";
-        String actualTitle = driver.getTitle();
+        String actualTitle= driver.getTitle();
 
         Assert.assertFalse(actualTitle.contains(unExpectedIcerik));
-
+        driver.close();
     }
 
 
-    @Test
-    public void test3() {
-        //		○ logoTest => BestBuy logosunun görüntülendigini test edin
-        mahserin4Atlisi();
-
-
-    }
-
-    @Test
-    public void test4() {
-        //		○ FrancaisLinkTest => Fransizca Linkin görüntülendiğini test edin
-        mahserin4Atlisi();
-
-
-    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

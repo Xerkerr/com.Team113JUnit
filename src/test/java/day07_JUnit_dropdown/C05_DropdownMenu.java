@@ -44,6 +44,7 @@ public class C05_DropdownMenu {
 
         System.out.println(select.getFirstSelectedOption().getText());
         //	2.Value kullanarak Seçenek 2'yi (Option 2) seçin ve yazdırın
+
         select.selectByValue("2");
         System.out.println(select.getFirstSelectedOption().getText());
         //	3.Visible Text(Görünen metin) kullanarak Seçenek 1’i (Option 1) seçin ve yazdırın
@@ -51,24 +52,22 @@ public class C05_DropdownMenu {
         System.out.println(select.getFirstSelectedOption().getText());
         //	4.Tüm dropdown değerleri(value) yazdırın
         List<WebElement> optionsList = select.getOptions();
-        System.out.println("------------------------");
 
-        for (WebElement eachelement: optionsList
+        System.out.println("=================");
+        for (WebElement eachElement: optionsList
              ) {
-            System.out.println(eachelement.getText());
-
+            System.out.println(eachElement.getText());
         }
+
+
+
         //	5. Dropdown’un boyutunun 4 olduğunu test edin
-        int expectedSize = 4 ;
-        int actualSize = optionsList.size();
+        int expectedSize=4;
+        int actualSize= optionsList.size();
 
         Assert.assertEquals(expectedSize,actualSize);
 
-
-
+        Thread.sleep(3000);
     }
-
-
-
 
 }

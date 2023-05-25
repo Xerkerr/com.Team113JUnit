@@ -12,7 +12,7 @@ import java.time.Duration;
 
 public class C01_TestNotasyonu {
 
-   /*
+    /*
         Bu class icerisinde 3 test calistiralim
         1- google anasayfaya gidip, url'in google icerdigini test edin
         2- wisequarter anasayfaya gidip url'in wisequarter icerdigini test edin

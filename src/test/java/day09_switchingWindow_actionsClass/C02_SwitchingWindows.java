@@ -49,7 +49,7 @@ public class C02_SwitchingWindows extends TestBase {
         String ikinciWindowWHD= "";
 
         for (String eachWhd: whDegerleriSet
-        ) {
+             ) {
 
             if (!eachWhd.equals(ilkSayfaWHD)){
                 ikinciWindowWHD = eachWhd;

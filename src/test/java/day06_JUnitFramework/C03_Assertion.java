@@ -9,56 +9,53 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.sql.Driver;
 import java.time.Duration;
 
 public class C03_Assertion {
     /*
-    Bir Assertion failed olursa
-    Assertion'in oldugu satirda exception olusur
-    ve assertion satirindan sonraki kodlar CALISMAZ
- */
+        Bir Assertion failed olursa
+        Assertion'in oldugu satirda exception olusur
+        ve assertion satirindan sonraki kodlar CALISMAZ
+     */
     WebDriver driver;
-
     @Test
-    public void googleTest() {
+    public void googleTest(){
         // 1- google anasayfaya gidip, url'in google icerdigini test edin
         mahserin4Atlisi();
-        driver.get("https://www.google.com.tr/?hl=tr");
-        String expectedurl = "google";
-        String actualurl = driver.getCurrentUrl();
+        driver.get("https://www.google.com");
+        String expectedIcerik="google1";
+        String actualUrl= driver.getCurrentUrl();
 
-        Assert.assertTrue(actualurl.contains(expectedurl));
+        Assert.assertTrue(actualUrl.contains(expectedIcerik));
         driver.close();
 
     }
-
     @Test
-    public void wisequarterTest() {
+    public void wiseTest(){
         // 2- wisequarter anasayfaya gidip url'in wisequarter icerdigini test edin
         mahserin4Atlisi();
-        driver.get("https://wisequarter.com/");
-        String expectedurl = "wisequarter";
-        String actualurl = driver.getCurrentUrl();
-        Assert.assertTrue(actualurl.contains(expectedurl));
+        driver.get("https://www.wisequarter.com");
+        String expectedIcerik = "wisequarter1";
+        String actualUrl= driver.getCurrentUrl();
+
+        Assert.assertTrue(actualUrl.contains(expectedIcerik));
         driver.close();
 
-    }
 
+    }
     @Test
-    public void amazonTest() {
+    public void amazonTest(){
         // 3- amazon anasayfaya gidip, amazon logosunun gorundugunu test edin
         mahserin4Atlisi();
-        driver.get("https://www.amazon.com/");
-        WebElement amazonelementi = driver.findElement(By.id("nav-logo-sprites"));
+        driver.get("https://www.amazon.com");
+        WebElement amazonLogoElementi = driver.findElement(By.id("nav-logo-sprites"));
 
-        Assert.assertTrue(amazonelementi.isDisplayed());
+        Assert.assertTrue(amazonLogoElementi.isDisplayed());
         driver.close();
 
     }
 
-
-    public void mahserin4Atlisi() {
+    public void mahserin4Atlisi(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();

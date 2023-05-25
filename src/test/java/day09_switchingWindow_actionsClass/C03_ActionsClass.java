@@ -44,7 +44,7 @@ public class C03_ActionsClass extends TestBase {
         // ilkWindowWHD'e esit olmayani ikinciWindowWHD olarak atayalim
 
         for (String eachWHD : windowHDegerleriSeti
-        ) {
+             ) {
 
             if (!eachWHD.equals(ilkWindowWHD)){
                 ikinciWindowWHD=eachWHD;

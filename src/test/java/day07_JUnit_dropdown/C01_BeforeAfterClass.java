@@ -22,51 +22,53 @@ public class C01_BeforeAfterClass {
     static WebDriver driver;
 
     @BeforeClass
-    public static void setup() {
+    public static void setup(){
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        driver= new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         //2) https://www.youtube.com adresine gidin
         driver.get("https://www.youtube.com");
     }
 
-    //@AfterClass
-    public static void teardown() {
+    @AfterClass
+    public static void teardown(){
         driver.close();
     }
 
     @Test
-    public void titleTest() {
+    public void titleTest(){
         //	○ titleTest 	=> Sayfa başlığının “YouTube” oldugunu test edin
-        String expectedTitle = "YouTube";
-        String actualTitle = driver.getTitle();
-        Assert.assertEquals(expectedTitle, actualTitle);
+        String expectedTitle="YouTube";
+        String actualTitle= driver.getTitle();
+        Assert.assertEquals(expectedTitle,actualTitle);
     }
 
     @Test
-    public void imageTest() {
+    public void imageTest(){
         //	○ imageTest 	=> YouTube resminin görüntülendiğini (isDisplayed()) test edin
-        WebElement logoElementi = driver.findElement(By.xpath("(//yt-icon[@id='logo-icon'])[1]"));
+        WebElement logoElementi= driver.findElement(By.xpath("(//yt-icon[@id='logo-icon'])[1]"));
 
         Assert.assertTrue(logoElementi.isDisplayed());
     }
 
     @Test
-    public void searchBoxTest() {
+    public void searchBoxTest(){
         //	○ Search Box 'in erisilebilir oldugunu test edin (isEnabled())
-        WebElement searchBoxElementi = driver.findElement(By.xpath("//input[@id='search']"));
+        WebElement searchBoxElementi= driver.findElement(By.xpath("//input[@id='search']"));
         Assert.assertTrue(searchBoxElementi.isEnabled());
 
     }
 
     @Test
-    public void wrongTitleTest() {
+    public void wrongTitleTest(){
         //	○ wrongTitleTest => Sayfa basliginin “youtube” olmadigini dogrulayin
-        String expectedTitle = "youtube";
-        String actualTitle = driver.getTitle();
-        Assert.assertNotEquals(expectedTitle, actualTitle);
+        String expectedTitle="youtube";
+        String actualTitle= driver.getTitle();
+        Assert.assertNotEquals(expectedTitle,actualTitle);
     }
+
+
 
 
 }
